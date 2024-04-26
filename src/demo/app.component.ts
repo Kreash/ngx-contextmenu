@@ -3,27 +3,10 @@ import { ContextMenuService, ContextMenuComponent } from 'ngx-contextmenu';
 
 @Component({
   selector: 'ngx-context-menu-demo',
-  styles: [`
-.dashboardContainer {
-width: 100%;
-height: 100%;
-position: fixed;
-}
-
-.componentsContainer {
-position: fixed;
-bottom: 0;
-top: 100px;
-width: 100%; }
-
-.componentContainer {
-overflow: auto;
-position: absolute; }
-`],
   templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-
   @ViewChild('wrapper')
   private wrapper: ElementRef<HTMLDivElement>;
 
@@ -38,20 +21,24 @@ export class AppComponent {
         top: '0px',
         width: '98px',
       },
-      actions: [{
-        enabled: true,
-        execute: (item: any): void => console.log(item),
-        html: (item: any): string => `John custom: ${item.name}`,
-        visible: true,
-      }, {
-        divider: true,
-        visible: true,
-      }, {
-        enabled: true,
-        execute: (item: any): void => console.log(item),
-        html: (item: any): string => `John custom: ${item.name}`,
-        visible: true,
-      }],
+      actions: [
+        {
+          enabled: true,
+          execute: (item: any): void => console.log(item),
+          html: (item: any): string => `John custom: ${item.name}`,
+          visible: true,
+        },
+        {
+          divider: true,
+          visible: true,
+        },
+        {
+          enabled: true,
+          execute: (item: any): void => console.log(item),
+          html: (item: any): string => `John custom: ${item.name}`,
+          visible: true,
+        },
+      ],
     },
     {
       name: 'Joe',
@@ -62,21 +49,28 @@ export class AppComponent {
         top: '0px',
         width: '98px',
       },
-      actions: [{
-        enabled: true,
-        execute: (item: any): void => { (<any>window).fake.doesntexist = 2; },
-        html: (item: any): string => `Joe something: ${item.name}`,
-        visible: true,
-      }],
+      actions: [
+        {
+          enabled: true,
+          execute: (item: any): void => {
+            (<any>window).fake.doesntexist = 2;
+          },
+          html: (item: any): string => `Joe something: ${item.name}`,
+          visible: true,
+        },
+      ],
     },
   ];
   public outsideValue = 'something';
 
-  @ViewChild('basicMenu', { static: true }) public basicMenu: ContextMenuComponent;
-  @ViewChild('enableAndVisible', { static: true }) public enableAndVisible: ContextMenuComponent;
-  @ViewChild('withFunctions', { static: true }) public withFunctions: ContextMenuComponent;
+  @ViewChild('basicMenu', { static: true })
+  public basicMenu: ContextMenuComponent;
+  @ViewChild('enableAndVisible', { static: true })
+  public enableAndVisible: ContextMenuComponent;
+  @ViewChild('withFunctions', { static: true })
+  public withFunctions: ContextMenuComponent;
 
-  constructor(private contextMenuService: ContextMenuService) { }
+  constructor(private contextMenuService: ContextMenuService) {}
 
   public canUseFullScreen(): boolean {
     return !!this.wrapper.nativeElement.requestFullscreen;

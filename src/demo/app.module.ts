@@ -6,8 +6,8 @@ import { RouterModule } from '@angular/router';
 
 import { ContextMenuModule } from 'ngx-contextmenu';
 import { AppComponent } from './app.component';
-import { ChildOneComponent } from './child1.component';
-import { ChildTwoComponent } from './child2.component';
+import { ChildOneComponent } from './components/child1/child1.component';
+import { ChildTwoComponent } from './components/child2/child2.component';
 
 @NgModule({
   bootstrap: [AppComponent],

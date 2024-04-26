@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "your-awesome-library": {
+    "demo": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -16,15 +16,10 @@
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
-            "assets": [
-              "src/assets",
-              "src/favicon.ico"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/assets", "src/favicon.ico"],
+            "styles": ["src/styles.scss"],
             "scripts": [],
-            "aot": false,
+            "aot": true,
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,
@@ -55,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "your-awesome-library:build"
+            "browserTarget": "demo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "your-awesome-library:build:production"
+              "browserTarget": "demo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "your-awesome-library:build"
+            "browserTarget": "demo:build"
           }
         },
         "test": {
@@ -77,28 +72,13 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "assets": [
-              "src/assets",
-              "src/favicon.ico"
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
-            ],
-            "exclude": []
+            "styles": ["src/styles.scss"],
+            "assets": ["src/assets", "src/favicon.ico"]
           }
         }
       }
     },
-    "your-awesome-library-e2e": {
+    "demo-e2e": {
       "root": "",
       "sourceRoot": "",
       "projectType": "application",
@@ -107,16 +87,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "your-awesome-library:serve"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "e2e/tsconfig.e2e.json"
-            ],
-            "exclude": []
+            "devServerTarget": "demo:serve"
           }
         }
       }
@@ -137,7 +108,8 @@
             "production": {
               "project": "projects/ngx-contextmenu/ng-package.prod.json"
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -146,30 +118,18 @@
             "tsConfig": "projects/ngx-contextmenu/tsconfig.spec.json",
             "karmaConfig": "projects/ngx-contextmenu/karma.conf.js"
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/ngx-contextmenu/tsconfig.lib.json",
-              "projects/ngx-contextmenu/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     }
   },
-  "defaultProject": "your-awesome-library",
+  "defaultProject": "demo",
   "schematics": {
     "@schematics/angular:component": {
-      "prefix": "yal",
-      "styleext": "scss"
+      "prefix": "demo",
+      "style": "scss"
     },
     "@schematics/angular:directive": {
-      "prefix": "yal"
+      "prefix": "demo"
     }
   },
   "cli": {
