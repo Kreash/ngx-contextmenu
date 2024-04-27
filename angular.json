@@ -93,9 +93,9 @@
       }
     },
     "ngx-contextmenu": {
+      "projectType": "library",
       "root": "projects/ngx-contextmenu",
       "sourceRoot": "projects/ngx-contextmenu/src",
-      "projectType": "library",
       "prefix": "lib",
       "architect": {
         "build": {
@@ -122,7 +122,6 @@
       }
     }
   },
-  "defaultProject": "demo",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "demo",
