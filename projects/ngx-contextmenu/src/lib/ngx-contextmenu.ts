@@ -17,9 +17,6 @@ import { ContextMenuContentComponent } from './contextMenuContent.component';
     ContextMenuContentComponent,
     ContextMenuItemDirective,
   ],
-  entryComponents: [
-    ContextMenuContentComponent,
-  ],
   exports: [
     ContextMenuAttachDirective,
     ContextMenuComponent,
