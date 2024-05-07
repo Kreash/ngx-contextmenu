@@ -7,8 +7,8 @@ Bootstrap classes are included in the markup, but there is no explicit dependenc
 
 ## Installation
 
-- `npm install ngx-contextmenu @angular/cdk`
-- import ContextMenuModule.forRoot() into your app module
+- `npm i @kreash/ngx-contextmenu @angular/cdk`
+- import ContextMenuModule into your app module
 - Make sure to include `<!doctype html>` at the top of your `index.html`
 
 ## Usage
