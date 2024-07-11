@@ -1,10 +1,12 @@
 {
   "name": "@kreash/ngx-contextmenu",
-  "version": "17.0.1",
+  "version": "18.0.0",
   "description": "An Angular component to show a context menu on an arbitrary component",
   "keywords": [
+    "angular",
     "angular2",
     "contextmenu",
+    "angular-contextmenu",
     "angular2-contextmenu",
     "ngx-contextmenu",
     "ngx",
@@ -18,9 +20,9 @@
     "url": "https://github.com/Kreash/ngx-contextmenu.git"
   },
   "peerDependencies": {
-    "@angular/cdk": "^17.0.0",
-    "@angular/common": "^17.0.0",
-    "@angular/core": "^17.0.0"
+    "@angular/cdk": "^18.0.0",
+    "@angular/common": "^18.0.0",
+    "@angular/core": "^18.0.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"

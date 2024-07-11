@@ -4,8 +4,8 @@
     "module": "es2020",
     "moduleResolution": "node",
     "target": "ES2022",
+    "esModuleInterop": true,
     "outDir": "/dist/out-tsc",
-    "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "allowJs": true,
     "inlineSourceMap": true,
@@ -30,9 +30,6 @@
     },
     "useDefineForClassFields": false
   },
-  // "files": [
-  //   "lib/ngx-contextmenu"
-  // ],
   "compileOnSave": false,
   "buildOnSave": false,
   "angularCompilerOptions": {

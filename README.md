@@ -1,9 +1,9 @@
 # ngx-contextmenu
 
-A context menu built with Angular (17).
+A context menu built with Angular (v18).
 Bootstrap classes are included in the markup, but there is no explicit dependency on Bootstrap.
 
-#### Angular 17 support
+#### Supported Angular versions: 18, 17
 
 ## Installation
 

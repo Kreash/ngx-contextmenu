@@ -1,3 +1,19 @@
+<a name="18.0.0"></a>
+
+# [18.0.0](https://github.com/isaacplmann/ngx-contextmenu) (2024-07-12)
+
+### BREAKING CHANGES
+
+- **Dependency**: Require Angular 18
+
+<a name="17.0.0"></a>
+
+# [17.0.0](https://github.com/isaacplmann/ngx-contextmenu) (2024-04-27)
+
+### BREAKING CHANGES
+
+- **Dependency**: Require Angular 17
+
 <a name="6.0.0"></a>
 
 # [6.0.0](https://github.com/isaacplmann/ngx-contextmenu) (2020-08-19)
