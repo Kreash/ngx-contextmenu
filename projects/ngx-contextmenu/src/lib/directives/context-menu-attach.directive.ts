@@ -1,5 +1,5 @@
-import { ContextMenuComponent } from './contextMenu.component';
-import { ContextMenuService } from './contextMenu.service';
+import { ContextMenuComponent } from '../components/context-menu/context-menu.component';
+import { ContextMenuService } from '../context-menu.service';
 import { Directive, HostListener, Input } from '@angular/core';
 
 @Directive({
@@ -9,7 +9,7 @@ export class ContextMenuAttachDirective {
   @Input() public contextMenuSubject: any;
   @Input() public contextMenu: ContextMenuComponent;
 
-  constructor(private contextMenuService: ContextMenuService) { }
+  constructor(private contextMenuService: ContextMenuService) {}
 
   @HostListener('contextmenu', ['$event'])
   public onContextMenu(event: MouseEvent): void {

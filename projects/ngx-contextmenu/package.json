@@ -1,14 +1,14 @@
 {
   "name": "@kreash/ngx-contextmenu",
-  "version": "18.0.0",
+  "version": "18.0.1",
   "description": "An Angular component to show a context menu on an arbitrary component",
   "keywords": [
-    "angular",
-    "angular2",
     "contextmenu",
-    "angular-contextmenu",
-    "angular2-contextmenu",
     "ngx-contextmenu",
+    "angular",
+    "angular-contextmenu",
+    "angular2",
+    "angular2-contextmenu",
     "ngx",
     "ng2",
     "ng2-contextmenu"

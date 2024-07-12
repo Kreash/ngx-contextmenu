@@ -2,9 +2,7 @@ import { Highlightable } from '@angular/cdk/a11y';
 import { Directive, ElementRef, EventEmitter, Input, Output, TemplateRef } from '@angular/core';
 
 @Directive({
-  /* tslint:disable:directive-selector-type */
   selector: '[contextMenuItem]',
-  /* tslint:enable:directive-selector-type */
 })
 export class ContextMenuItemDirective implements Highlightable {
   @Input() public subMenu: any;
@@ -12,17 +10,18 @@ export class ContextMenuItemDirective implements Highlightable {
   @Input() public enabled: boolean | ((item: any) => boolean) = true;
   @Input() public passive = false;
   @Input() public visible: boolean | ((item: any) => boolean) = true;
-  @Output() public execute: EventEmitter<{ event: MouseEvent | KeyboardEvent, item: any }> = new EventEmitter();
+  @Output() public execute: EventEmitter<{
+    event: MouseEvent | KeyboardEvent;
+    item: any;
+  }> = new EventEmitter();
 
   public currentItem: any;
   public isActive = false;
   public get disabled() {
-    return this.passive ||
-      this.divider ||
-      !this.evaluateIfFunction(this.enabled, this.currentItem);
+    return this.passive || this.divider || !this.evaluateIfFunction(this.enabled, this.currentItem);
   }
 
-  constructor(public template: TemplateRef<{ item: any }>, public elementRef: ElementRef) { }
+  constructor(public template: TemplateRef<{ item: any }>, public elementRef: ElementRef) {}
 
   public evaluateIfFunction(value: any, item: any): any {
     if (value instanceof Function) {
