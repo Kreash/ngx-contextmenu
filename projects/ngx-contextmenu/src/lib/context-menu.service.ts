@@ -10,7 +10,7 @@ import {
   IContextMenuClickEvent,
   IContextMenuContext,
   OverlayRefWithContextMenu,
-} from './context-menu.model';
+} from './models/context-menu.model';
 
 @Injectable()
 export class ContextMenuService {

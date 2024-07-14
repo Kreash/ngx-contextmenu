@@ -2,6 +2,7 @@ import { ActiveDescendantKeyManager } from '@angular/cdk/a11y';
 import { OverlayRef } from '@angular/cdk/overlay';
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   ElementRef,
@@ -18,8 +19,8 @@ import {
   ViewChildren,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { IContextMenuOptions } from '../../context-menu-options.model';
-import { CloseLeafMenuEvent, IContextMenuClickEvent } from '../../context-menu.model';
+import { IContextMenuOptions } from '../../models/context-menu-options.model';
+import { CloseLeafMenuEvent, IContextMenuClickEvent } from '../../models/context-menu.model';
 import { CONTEXT_MENU_OPTIONS } from '../../context-menu.tokens';
 import { ContextMenuItemDirective } from '../../directives/context-menu-item.directive';
 
@@ -33,24 +34,9 @@ const ARROW_LEFT_KEYCODE = 37;
 
 @Component({
   selector: 'context-menu-content',
-  // styleUrls: ['./context-menu-content.component.css'],
-  styles: [
-    `
-      .passive {
-        display: block;
-        padding: 3px 20px;
-        clear: both;
-        font-weight: normal;
-        line-height: @line-height-base;
-        white-space: nowrap;
-      }
-      .hasSubMenu:before {
-        content: '\u25B6';
-        float: right;
-      }
-    `,
-  ],
+  styleUrls: ['./context-menu-content.component.scss'],
   templateUrl: './context-menu-content.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContextMenuContentComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input() public menuItems: ContextMenuItemDirective[] = [];

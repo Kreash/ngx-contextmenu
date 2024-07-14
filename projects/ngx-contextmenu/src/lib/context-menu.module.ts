@@ -4,7 +4,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 
 import { ContextMenuContentComponent } from './components/context-menu-content/context-menu-content.component';
 import { ContextMenuComponent } from './components/context-menu/context-menu.component';
-import { IContextMenuOptions } from './context-menu-options.model';
+import { IContextMenuOptions } from './models/context-menu-options.model';
 import { ContextMenuService } from './context-menu.service';
 import { CONTEXT_MENU_OPTIONS } from './context-menu.tokens';
 import { ContextMenuAttachDirective } from './directives/context-menu-attach.directive';

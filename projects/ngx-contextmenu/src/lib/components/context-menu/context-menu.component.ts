@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   ContentChildren,
@@ -16,8 +17,8 @@ import {
 import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
 
-import { IContextMenuOptions } from '../../context-menu-options.model';
-import { CloseContextMenuEvent, IContextMenuClickEvent } from '../../context-menu.model';
+import { IContextMenuOptions } from '../../models/context-menu-options.model';
+import { CloseContextMenuEvent, IContextMenuClickEvent } from '../../models/context-menu.model';
 import { ContextMenuService } from '../../context-menu.service';
 import { CONTEXT_MENU_OPTIONS } from '../../context-menu.tokens';
 import { ContextMenuItemDirective } from '../../directives/context-menu-item.directive';
@@ -39,6 +40,7 @@ export interface MouseLocation {
   selector: 'context-menu',
   styleUrls: ['./context-menu.component.scss'],
   template: ``,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContextMenuComponent implements OnDestroy {
   @Input() public menuClass = '';

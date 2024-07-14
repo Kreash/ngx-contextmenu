@@ -6,5 +6,5 @@ export * from './lib/components/context-menu/context-menu.component';
 export * from './lib/context-menu.service';
 export * from './lib/directives/context-menu-attach.directive';
 export * from './lib/directives/context-menu-item.directive';
-export * from './lib/context-menu-options.model';
-export * from './lib/context-menu.model';
+export * from './lib/models/context-menu-options.model';
+export * from './lib/models/context-menu.model';

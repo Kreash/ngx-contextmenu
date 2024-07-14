@@ -1,7 +1,7 @@
 ﻿import { OverlayRef } from '@angular/cdk/overlay';
-import { ContextMenuComponent } from './components/context-menu/context-menu.component';
-import { ContextMenuItemDirective } from './directives/context-menu-item.directive';
-import { ContextMenuContentComponent } from './components/context-menu-content/context-menu-content.component';
+import { ContextMenuContentComponent } from '../components/context-menu-content/context-menu-content.component';
+import { ContextMenuComponent } from '../components/context-menu/context-menu.component';
+import { ContextMenuItemDirective } from '../directives/context-menu-item.directive';
 
 export interface IContextMenuClickEvent {
   anchorElement?: Element | EventTarget;
