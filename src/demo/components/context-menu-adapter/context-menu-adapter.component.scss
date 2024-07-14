@@ -1,0 +1,22 @@
+.menu {
+  &-option {
+    display: flex;
+    align-items: center;
+    padding: 0 11px;
+    user-select: none;
+  }
+
+  &-icon {
+    width: 13px;
+    height: 13px;
+    vertical-align: middle;
+
+    &.disabled {
+      filter: contrast(0);
+    }
+  }
+
+  &-icon + &-text {
+    padding: 0 10px;
+  }
+}
