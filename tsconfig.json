@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
-    "module": "es2020",
+    "module": "es2022",
     "moduleResolution": "node",
     "target": "ES2022",
     "esModuleInterop": true,
@@ -14,7 +14,7 @@
     "skipLibCheck": true,
     "stripInternal": true,
     "lib": [
-      "es2020",
+      "es2022",
       "dom"
     ],
     "paths": {

@@ -21,7 +21,8 @@
           >
             <ng-template [ngTemplateOutlet]="menuItem.template" [ngTemplateOutletContext]="{ $implicit: item }"></ng-template>
           </a>
-        } @if (!menuItem.divider && menuItem.passive) {
+        }
+        @if (!menuItem.divider && menuItem.passive) {
           <span
             (click)="stopEvent($event)"
             (contextmenu)="stopEvent($event)"

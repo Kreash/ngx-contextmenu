@@ -1,34 +1,28 @@
 import { Highlightable } from '@angular/cdk/a11y';
 import { Directive, ElementRef, EventEmitter, Input, Output, TemplateRef } from '@angular/core';
+import { evaluateIfFunction } from '../utils/context-menu.utils';
 
 @Directive({
   selector: '[contextMenuItem]',
 })
-export class ContextMenuItemDirective implements Highlightable {
+export class ContextMenuItemDirective<TItem = any> implements Highlightable {
   @Input() public subMenu: any;
   @Input() public divider = false;
-  @Input() public enabled: boolean | ((item: any) => boolean) = true;
+  @Input() public enabled: boolean | ((item: TItem) => boolean) = true;
   @Input() public passive = false;
-  @Input() public visible: boolean | ((item: any) => boolean) = true;
+  @Input() public visible: boolean | ((item: TItem) => boolean) = true;
   @Output() public execute: EventEmitter<{
     event: MouseEvent | KeyboardEvent;
-    item: any;
+    item: TItem;
   }> = new EventEmitter();
 
-  public currentItem: any;
+  public currentItem: TItem;
   public isActive = false;
   public get disabled() {
-    return this.passive || this.divider || !this.evaluateIfFunction(this.enabled, this.currentItem);
+    return this.passive || this.divider || !evaluateIfFunction(this.enabled, this.currentItem);
   }
 
-  constructor(public template: TemplateRef<{ item: any }>, public elementRef: ElementRef) {}
-
-  public evaluateIfFunction(value: any, item: any): any {
-    if (value instanceof Function) {
-      return value(item);
-    }
-    return value;
-  }
+  constructor(public template: TemplateRef<{ item: TItem }>, public elementRef: ElementRef) {}
 
   public setActiveStyles(): void {
     this.isActive = true;
@@ -37,8 +31,8 @@ export class ContextMenuItemDirective implements Highlightable {
     this.isActive = false;
   }
 
-  public triggerExecute(item: any, $event?: MouseEvent | KeyboardEvent): void {
-    if (!this.evaluateIfFunction(this.enabled, item)) {
+  public triggerExecute(item: TItem, $event?: MouseEvent | KeyboardEvent): void {
+    if (!evaluateIfFunction(this.enabled, item)) {
       return;
     }
     this.execute.emit({ event: $event, item });

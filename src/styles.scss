@@ -5,3 +5,7 @@
   color: white;
   background-color: black;
 }
+
+:not(:root):fullscreen::backdrop {
+  background-color: var(--nord6);
+}

@@ -16,7 +16,7 @@ import { DemoComponent } from './components/demo/demo.component';
   imports: [
     BrowserModule,
     CommonModule,
-    ContextMenuModule,
+    ContextMenuModule.forRoot(),
     RouterModule.forRoot(
       [
         {

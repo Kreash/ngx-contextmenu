@@ -23,6 +23,7 @@ import { IContextMenuOptions } from '../../models/context-menu-options.model';
 import { CloseLeafMenuEvent, IContextMenuClickEvent } from '../../models/context-menu.model';
 import { CONTEXT_MENU_OPTIONS } from '../../context-menu.tokens';
 import { ContextMenuItemDirective } from '../../directives/context-menu-item.directive';
+import { evaluateIfFunction } from '../../utils/context-menu.utils';
 
 export interface ILinkConfig {
   click: (item: any, $event?: MouseEvent) => void;
@@ -64,11 +65,9 @@ export class ContextMenuContentComponent implements OnInit, OnDestroy, AfterView
   private _keyManager: ActiveDescendantKeyManager<ContextMenuItemDirective>;
   private subscription: Subscription = new Subscription();
   constructor(
-    private changeDetector: ChangeDetectorRef,
-    private elementRef: ElementRef,
     @Optional()
     @Inject(CONTEXT_MENU_OPTIONS)
-    private options: IContextMenuOptions,
+    options: IContextMenuOptions,
   ) {
     if (options) {
       this.autoFocus = options.autoFocus;
@@ -108,18 +107,11 @@ export class ContextMenuContentComponent implements OnInit, OnDestroy, AfterView
   }
 
   public isMenuItemEnabled(menuItem: ContextMenuItemDirective): boolean {
-    return this.evaluateIfFunction(menuItem && menuItem.enabled);
+    return evaluateIfFunction(menuItem?.enabled, this.item);
   }
 
   public isMenuItemVisible(menuItem: ContextMenuItemDirective): boolean {
-    return this.evaluateIfFunction(menuItem && menuItem.visible);
-  }
-
-  public evaluateIfFunction(value: any): any {
-    if (value instanceof Function) {
-      return value(this.item);
-    }
-    return value;
+    return evaluateIfFunction(menuItem?.visible, this.item);
   }
 
   public isDisabled(link: ILinkConfig): boolean {
