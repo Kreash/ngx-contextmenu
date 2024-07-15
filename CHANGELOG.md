@@ -1,3 +1,12 @@
+<a name="18.1.0"></a>
+
+# [18.1.0](https://github.com/isaacplmann/ngx-contextmenu) (2024-07-16)
+
+### Features
+- add **ChangeDetectionStrategy.OnPush**
+- add new [Angular control flow](https://angular.dev/guide/templates/control-flow/)
+- changed the minimum supported version of JavaScript from **es2020** to **es2022**
+
 <a name="18.0.0"></a>
 
 # [18.0.0](https://github.com/isaacplmann/ngx-contextmenu) (2024-07-12)
