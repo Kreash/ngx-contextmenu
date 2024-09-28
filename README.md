@@ -5,6 +5,8 @@ Bootstrap classes are included in the markup, but there is no explicit dependenc
 
 #### Supported Angular versions: 18, 17
 
+#### Demo: https://kreash.github.io/ngx-contextmenu/
+
 ## Installation
 
 - `npm i @kreash/ngx-contextmenu @angular/cdk`
