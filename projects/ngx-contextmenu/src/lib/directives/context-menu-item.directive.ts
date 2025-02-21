@@ -3,7 +3,8 @@ import { Directive, ElementRef, EventEmitter, Input, Output, TemplateRef } from 
 import { evaluateIfFunction } from '../utils/context-menu.utils';
 
 @Directive({
-  selector: '[contextMenuItem]',
+    selector: '[contextMenuItem]',
+    standalone: false
 })
 export class ContextMenuItemDirective<TItem = any> implements Highlightable {
   @Input() public subMenu: any;

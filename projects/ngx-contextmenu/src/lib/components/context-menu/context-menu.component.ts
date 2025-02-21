@@ -37,11 +37,12 @@ export interface MouseLocation {
 }
 
 @Component({
-  encapsulation: ViewEncapsulation.None,
-  selector: 'context-menu',
-  styleUrls: ['./context-menu.component.scss'],
-  template: ``,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None,
+    selector: 'context-menu',
+    styleUrls: ['./context-menu.component.scss'],
+    template: ``,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ContextMenuComponent implements OnDestroy {
   @Input() public menuClass = '';

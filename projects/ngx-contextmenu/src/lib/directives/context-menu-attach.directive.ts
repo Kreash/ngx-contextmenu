@@ -3,7 +3,8 @@ import { ContextMenuService } from '../context-menu.service';
 import { Directive, HostListener, Input } from '@angular/core';
 
 @Directive({
-  selector: '[contextMenu]',
+    selector: '[contextMenu]',
+    standalone: false
 })
 export class ContextMenuAttachDirective {
   @Input() public contextMenuSubject: any;

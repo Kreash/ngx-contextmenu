@@ -5,8 +5,9 @@ import { ContextMenuAdapterComponent } from '../context-menu-adapter/context-men
 import { ContextMenuService } from 'ngx-contextmenu';
 
 @Component({
-  selector: 'child-three',
-  templateUrl: './child3.component.html',
+    selector: 'child-three',
+    templateUrl: './child3.component.html',
+    standalone: false
 })
 export class ChildThreeComponent {
   @ViewChild('contextMenu') contextMenu: ContextMenuAdapterComponent;

@@ -34,10 +34,11 @@ export interface ILinkConfig {
 const ARROW_LEFT_KEYCODE = 37;
 
 @Component({
-  selector: 'context-menu-content',
-  styleUrls: ['./context-menu-content.component.scss'],
-  templateUrl: './context-menu-content.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'context-menu-content',
+    styleUrls: ['./context-menu-content.component.scss'],
+    templateUrl: './context-menu-content.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ContextMenuContentComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input() public menuItems: ContextMenuItemDirective[] = [];

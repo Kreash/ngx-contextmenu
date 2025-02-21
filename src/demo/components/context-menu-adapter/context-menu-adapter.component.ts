@@ -4,10 +4,11 @@ import { ContextMenuOption, OptionActionEvent } from 'src/demo/models/context-me
 import { ContextMenuAdapterSettings } from 'src/demo/models/context-menu.model';
 
 @Component({
-  selector: 'context-menu-adapter',
-  templateUrl: './context-menu-adapter.component.html',
-  styleUrls: ['./context-menu-adapter.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'context-menu-adapter',
+    templateUrl: './context-menu-adapter.component.html',
+    styleUrls: ['./context-menu-adapter.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ContextMenuAdapterComponent {
   @Input() options: ContextMenuOption[] | null = null;

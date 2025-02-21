@@ -2,9 +2,10 @@
 import { ContextMenuService, ContextMenuComponent } from 'ngx-contextmenu';
 
 @Component({
-  selector: 'demo',
-  templateUrl: './demo.component.html',
-  styleUrls: ['./demo.component.scss'],
+    selector: 'demo',
+    templateUrl: './demo.component.html',
+    styleUrls: ['./demo.component.scss'],
+    standalone: false
 })
 export class DemoComponent {
   @ViewChild('wrapper')
