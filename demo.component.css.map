@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["src/demo/components/demo/demo.component.scss"],
-  "sourcesContent": ["﻿.dashboardContainer {\r\n  width: 100%;\r\n  height: 100%;\r\n  position: fixed;\r\n}\r\n\r\n.componentsContainer {\r\n  position: fixed;\r\n  bottom: 0;\r\n  top: 100px;\r\n  width: 100%;\r\n}\r\n\r\n.componentContainer {\r\n  overflow: auto;\r\n  position: absolute;\r\n}\r\n"],
+  "sourcesContent": ["﻿.dashboardContainer {\n  width: 100%;\n  height: 100%;\n  position: fixed;\n}\n\n.componentsContainer {\n  position: fixed;\n  bottom: 0;\n  top: 100px;\n  width: 100%;\n}\n\n.componentContainer {\n  overflow: auto;\n  position: absolute;\n}\n"],
   "mappings": ";AAAC,CAAA;AACC,SAAA;AACA,UAAA;AACA,YAAA;;AAGF,CAAA;AACE,YAAA;AACA,UAAA;AACA,OAAA;AACA,SAAA;;AAGF,CAAA;AACE,YAAA;AACA,YAAA;;",
   "names": []
 }

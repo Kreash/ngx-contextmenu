@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["src/demo/components/context-menu-adapter/context-menu-adapter.component.scss"],
-  "sourcesContent": [".menu {\r\n  &-option {\r\n    display: flex;\r\n    align-items: center;\r\n    padding: 0 11px;\r\n    user-select: none;\r\n  }\r\n\r\n  &-icon {\r\n    width: 13px;\r\n    height: 13px;\r\n    vertical-align: middle;\r\n\r\n    &.disabled {\r\n      filter: contrast(0);\r\n    }\r\n  }\r\n\r\n  &-icon + &-text {\r\n    padding: 0 10px;\r\n  }\r\n}\r\n"],
+  "sourcesContent": [".menu {\n  &-option {\n    display: flex;\n    align-items: center;\n    padding: 0 11px;\n    user-select: none;\n  }\n\n  &-icon {\n    width: 13px;\n    height: 13px;\n    vertical-align: middle;\n\n    &.disabled {\n      filter: contrast(0);\n    }\n  }\n\n  &-icon + &-text {\n    padding: 0 10px;\n  }\n}\n"],
   "mappings": ";AACE,CAAA;AACE,WAAA;AACA,eAAA;AACA,WAAA,EAAA;AACA,uBAAA;AAAA,eAAA;;AAGF,CAAA;AACE,SAAA;AACA,UAAA;AACA,kBAAA;;AAEA,CALF,SAKE,CAAA;AACE,UAAA,SAAA;;AAIJ,CAVA,UAUA,EAAA,CAAA;AACE,WAAA,EAAA;;",
   "names": []
 }

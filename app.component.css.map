@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["src/demo/app.component.scss"],
-  "sourcesContent": ["﻿.header {\r\n  height: 60px;\r\n  width: 100%;\r\n  padding: 10px;\r\n\r\n  display: flex;\r\n  justify-content: space-between;\r\n  gap: 20px;\r\n\r\n\r\n  font-weight: 700;\r\n  color: var(--nord6);\r\n  background-color: var(--nord3);\r\n\r\n  h1 {\r\n    margin: 0;\r\n  }\r\n}\r\n\r\n.navigation {\r\n  a {\r\n    font-size: 20px;\r\n    color: var(--nord6);\r\n  }\r\n\r\n  display: flex;\r\n  align-items: flex-end;\r\n  gap: 20px;\r\n}\r\n\r\n.content {\r\n  height: calc(100vh - 60px);\r\n  width: 100%;\r\n  padding: 10px;\r\n  overflow: auto;\r\n\r\n  background-color: var(--nord6);\r\n}\r\n"],
+  "sourcesContent": ["﻿.header {\n  height: 60px;\n  width: 100%;\n  padding: 10px;\n\n  display: flex;\n  justify-content: space-between;\n  gap: 20px;\n\n\n  font-weight: 700;\n  color: var(--nord6);\n  background-color: var(--nord3);\n\n  h1 {\n    margin: 0;\n  }\n}\n\n.navigation {\n  a {\n    font-size: 20px;\n    color: var(--nord6);\n  }\n\n  display: flex;\n  align-items: flex-end;\n  gap: 20px;\n}\n\n.content {\n  height: calc(100vh - 60px);\n  width: 100%;\n  padding: 10px;\n  overflow: auto;\n\n  background-color: var(--nord6);\n}\n"],
   "mappings": ";AAAC,CAAA;AACC,UAAA;AACA,SAAA;AACA,WAAA;AAEA,WAAA;AACA,mBAAA;AACA,OAAA;AAGA,eAAA;AACA,SAAA,IAAA;AACA,oBAAA,IAAA;;AAEA,CAdD,OAcC;AACE,UAAA;;AAIJ,CAAA;AAME,WAAA;AACA,eAAA;AACA,OAAA;;AAPA,CADF,WACE;AACE,aAAA;AACA,SAAA,IAAA;;AAQJ,CAAA;AACE,UAAA,KAAA,MAAA,EAAA;AACA,SAAA;AACA,WAAA;AACA,YAAA;AAEA,oBAAA,IAAA;;",
   "names": []
 }
