@@ -32,13 +32,13 @@ jobs:
       - name: Install and Build
         working-directory: ./
         run: |
-          npm install && npm run build:demo -- --base-href /ngx-contextmenu/
+          npm install && npm run build:lib && npm run build:demo -- --base-href /ngx-contextmenu/
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
           path: './dist/demo/browser/.'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
