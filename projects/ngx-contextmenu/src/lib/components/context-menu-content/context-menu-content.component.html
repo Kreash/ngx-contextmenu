@@ -8,7 +8,7 @@
         [class.dropdown-divider]="useBootstrap4 && menuItem.divider"
         [class.active]="menuItem.isActive && isMenuItemEnabled(menuItem)"
         [attr.role]="menuItem.divider ? 'separator' : undefined"
-      >
+        >
         @if (!menuItem.divider && !menuItem.passive) {
           <a
             href
@@ -18,21 +18,22 @@
             [class.hasSubMenu]="!!menuItem.subMenu"
             (click)="onMenuItemSelect(menuItem, $event)"
             (mouseenter)="onOpenSubMenu(menuItem, $event)"
-          >
+            >
             <ng-template [ngTemplateOutlet]="menuItem.template" [ngTemplateOutletContext]="{ $implicit: item }"></ng-template>
           </a>
         }
         @if (!menuItem.divider && menuItem.passive) {
-          <span
-            (click)="stopEvent($event)"
-            (contextmenu)="stopEvent($event)"
-            class="passive"
-            *ngIf="!menuItem.divider && menuItem.passive"
-            [class.dropdown-item]="useBootstrap4"
-            [class.disabled]="useBootstrap4 && !isMenuItemEnabled(menuItem)"
-          >
-            <ng-template [ngTemplateOutlet]="menuItem.template" [ngTemplateOutletContext]="{ $implicit: item }"></ng-template>
-          </span>
+          @if (!menuItem.divider && menuItem.passive) {
+            <span
+              (click)="stopEvent($event)"
+              (contextmenu)="stopEvent($event)"
+              class="passive"
+              [class.dropdown-item]="useBootstrap4"
+              [class.disabled]="useBootstrap4 && !isMenuItemEnabled(menuItem)"
+              >
+              <ng-template [ngTemplateOutlet]="menuItem.template" [ngTemplateOutletContext]="{ $implicit: item }"></ng-template>
+            </span>
+          }
         }
       </li>
     }
