@@ -1,27 +1,25 @@
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   ContentChildren,
+  DestroyRef,
   ElementRef,
   EventEmitter,
-  Inject,
   Input,
-  OnDestroy,
-  Optional,
   Output,
   QueryList,
   ViewChild,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
 
-import { IContextMenuOptions } from '../../models/context-menu-options.model';
-import { CloseContextMenuEvent, IContextMenuClickEvent } from '../../models/context-menu.model';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ContextMenuService } from '../../context-menu.service';
 import { CONTEXT_MENU_OPTIONS } from '../../context-menu.tokens';
 import { ContextMenuItemDirective } from '../../directives/context-menu-item.directive';
+import { IContextMenuOptions } from '../../models/context-menu-options.model';
+import { CloseContextMenuEvent, IContextMenuClickEvent } from '../../models/context-menu.model';
 import { evaluateIfFunction } from '../../utils/context-menu.utils';
 
 export interface ILinkConfig {
@@ -37,14 +35,14 @@ export interface MouseLocation {
 }
 
 @Component({
-    encapsulation: ViewEncapsulation.None,
-    selector: 'context-menu',
-    styleUrls: ['./context-menu.component.scss'],
-    template: ``,
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  encapsulation: ViewEncapsulation.None,
+  selector: 'context-menu',
+  styleUrls: ['./context-menu.component.scss'],
+  template: ``,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
-export class ContextMenuComponent implements OnDestroy {
+export class ContextMenuComponent {
   @Input() public menuClass = '';
   @Input() public autoFocus = false;
   @Input() public useBootstrap4 = false;
@@ -61,27 +59,17 @@ export class ContextMenuComponent implements OnDestroy {
   public item: any;
   public event: MouseEvent | KeyboardEvent;
 
-  private subscription: Subscription = new Subscription();
+  private readonly destroyRef = inject(DestroyRef);
+  private readonly contextMenuService = inject(ContextMenuService);
+  private readonly options = inject<IContextMenuOptions | null>(CONTEXT_MENU_OPTIONS, { optional: true });
 
-  constructor(
-    private contextMenuService: ContextMenuService,
-    @Optional()
-    @Inject(CONTEXT_MENU_OPTIONS)
-    options: IContextMenuOptions,
-  ) {
-    if (options) {
-      this.autoFocus = options.autoFocus;
-      this.useBootstrap4 = options.useBootstrap4;
+  constructor() {
+    if (this.options) {
+      this.autoFocus = this.options.autoFocus;
+      this.useBootstrap4 = this.options.useBootstrap4;
     }
-    this.subscription.add(
-      contextMenuService.show.subscribe((menuEvent) => {
-        this.onMenuEvent(menuEvent);
-      }),
-    );
-  }
 
-  public ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.contextMenuService.show.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((menuEvent) => this.onMenuEvent(menuEvent));
   }
 
   public onMenuEvent(menuEvent: IContextMenuClickEvent): void {
@@ -100,9 +88,7 @@ export class ContextMenuComponent implements OnDestroy {
       menuItems: this.visibleMenuItems,
       menuClass: this.menuClass,
     });
-    this.contextMenuService.close
-      .pipe(first())
-      .subscribe((closeEvent) => this.close.emit(closeEvent));
+    this.contextMenuService.close.pipe(first()).subscribe((closeEvent) => this.close.emit(closeEvent));
     this.open.next(menuEvent);
   }
 

@@ -1,6 +1,6 @@
 /* Public API Surface of ngx-contextmenu */
 
-export { ContextMenuModule } from './lib/context-menu.module';
+export { ContextMenuModule, provideContextMenu } from './lib/context-menu.module';
 
 export * from './lib/components/context-menu/context-menu.component';
 export * from './lib/context-menu.service';

@@ -1,6 +1,6 @@
 import { ConnectedPosition, Overlay, OverlayRef, ScrollStrategyOptions } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
-import { ComponentRef, ElementRef, Injectable } from '@angular/core';
+import { ComponentRef, ElementRef, Injectable, inject } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 
 import { ContextMenuContentComponent } from './components/context-menu-content/context-menu-content.component';
@@ -94,31 +94,13 @@ export class ContextMenuService {
     },
   ];
 
-  constructor(private overlay: Overlay, private scrollStrategy: ScrollStrategyOptions) {}
+  private readonly overlay = inject(Overlay);
+  private readonly scrollStrategy = inject(ScrollStrategyOptions);
 
   public openContextMenu(context: IContextMenuContext) {
     const { anchorElement, event, parentContextMenu } = context;
 
-    if (!parentContextMenu) {
-      const mouseEvent = event as MouseEvent;
-      this.fakeElement.getBoundingClientRect = (): DOMRect => new DOMRect(mouseEvent.clientX, mouseEvent.clientY, 0, 0);
-
-      this.closeAllContextMenus({ eventType: 'cancel', event });
-
-      const positionStrategy = this.overlay
-        .position()
-        .flexibleConnectedTo(new ElementRef(anchorElement ?? this.fakeElement))
-        .withPositions(this.rootMenuPositionsFor)
-        .withFlexibleDimensions(false);
-      this.overlays = [
-        this.overlay.create({
-          positionStrategy,
-          panelClass: 'ngx-contextmenu',
-          scrollStrategy: this.scrollStrategy.close(),
-        }),
-      ];
-      this.attachContextMenu(this.overlays[0], context);
-    } else {
+    if (parentContextMenu) {
       const positionStrategy = this.overlay
         .position()
         .flexibleConnectedTo(new ElementRef(event?.target ?? anchorElement))
@@ -132,7 +114,27 @@ export class ContextMenuService {
       this.destroySubMenus(parentContextMenu);
       this.overlays = this.overlays.concat(newOverlay);
       this.attachContextMenu(newOverlay, context);
+      return;
     }
+
+    const mouseEvent = event as MouseEvent;
+    this.fakeElement.getBoundingClientRect = (): DOMRect => new DOMRect(mouseEvent.clientX, mouseEvent.clientY, 0, 0);
+
+    this.closeAllContextMenus({ eventType: 'cancel', event });
+
+    const positionStrategy = this.overlay
+      .position()
+      .flexibleConnectedTo(new ElementRef(anchorElement ?? this.fakeElement))
+      .withPositions(this.rootMenuPositionsFor)
+      .withFlexibleDimensions(false);
+    this.overlays = [
+      this.overlay.create({
+        positionStrategy,
+        panelClass: 'ngx-contextmenu',
+        scrollStrategy: this.scrollStrategy.close(),
+      }),
+    ];
+    this.attachContextMenu(this.overlays[0], context);
   }
 
   public attachContextMenu(overlay: OverlayRef, context: IContextMenuContext): void {
@@ -166,7 +168,9 @@ export class ContextMenuService {
       }),
     );
     contextMenuContent.onDestroy(() => {
-      menuItems.forEach((menuItem) => (menuItem.isActive = false));
+      for (const menuItem of menuItems) {
+        menuItem.isActive = false;
+      }
       subscriptions.unsubscribe();
     });
     contextMenuContent.changeDetectorRef.detectChanges();
@@ -175,7 +179,9 @@ export class ContextMenuService {
   public closeAllContextMenus(closeEvent: CloseContextMenuEvent): void {
     if (this.overlays?.length) {
       this.close.next(closeEvent);
-      this.overlays.forEach((overlay) => this.destroyOverlay(overlay));
+      for (const overlay of this.overlays) {
+        this.destroyOverlay(overlay);
+      }
     }
     this.overlays = [];
   }
@@ -218,9 +224,9 @@ export class ContextMenuService {
   public destroySubMenus(contextMenu: ContextMenuContentComponent): void {
     const overlay = contextMenu.overlay;
     const index = this.overlays.indexOf(overlay);
-    this.overlays.slice(index + 1).forEach((subMenuOverlay) => {
+    for (const subMenuOverlay of this.overlays.slice(index + 1)) {
       this.destroyOverlay(subMenuOverlay);
-    });
+    }
   }
 
   public isLeafMenu(contextMenuContent: ContextMenuContentComponent): boolean {
