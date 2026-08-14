@@ -13,10 +13,6 @@
     "declaration": true,
     "skipLibCheck": true,
     "stripInternal": true,
-    "lib": [
-      "es2022",
-      "dom"
-    ],
     "paths": {
       "ngx-contextmenu": [
         "./dist/ngx-contextmenu"
