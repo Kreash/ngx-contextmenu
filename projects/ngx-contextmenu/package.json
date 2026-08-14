@@ -1,6 +1,6 @@
 {
   "name": "@kreash/ngx-contextmenu",
-  "version": "20.0.0",
+  "version": "21.0.0",
   "description": "An Angular component to show a context menu on an arbitrary component",
   "keywords": [
     "contextmenu",
@@ -17,7 +17,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Kreash/ngx-contextmenu.git"
+    "url": "git+https://github.com/Kreash/ngx-contextmenu.git"
   },
   "peerDependencies": {
     "@angular/cdk": "^21.0.0",
