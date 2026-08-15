@@ -47,7 +47,6 @@
     "@angular/forms": "22.1.2",
     "@angular/platform-browser": "22.1.2",
     "@angular/router": "22.1.2",
-    "@types/node": "14.6.0",
     "copyfiles": "^2.3.0",
     "eslint": "^9.39.1",
     "gh-pages": "^6.1.1",

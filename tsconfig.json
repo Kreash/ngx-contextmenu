@@ -27,8 +27,5 @@
     "useDefineForClassFields": false
   },
   "compileOnSave": false,
-  "buildOnSave": false,
-  "angularCompilerOptions": {
-    "skipTemplateCodegen": true,
-  }
+  "buildOnSave": false
 }
