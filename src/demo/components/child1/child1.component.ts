@@ -1,9 +1,10 @@
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
     selector: 'child-one',
     templateUrl: './child1.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: false
 })
 export class ChildOneComponent {

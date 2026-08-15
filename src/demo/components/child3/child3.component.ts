@@ -1,12 +1,13 @@
-import { Component, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
+import { ContextMenuService } from 'ngx-contextmenu';
 import { ContextMenuOption } from 'src/demo/models/context-menu-adapter.model';
 import { ContextMenuAdapterSettings } from 'src/demo/models/context-menu.model';
 import { ContextMenuAdapterComponent } from '../context-menu-adapter/context-menu-adapter.component';
-import { ContextMenuService } from 'ngx-contextmenu';
 
 @Component({
     selector: 'child-three',
     templateUrl: './child3.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: false
 })
 export class ChildThreeComponent {

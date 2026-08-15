@@ -1,10 +1,11 @@
-﻿import { Component, ViewChild, ElementRef } from '@angular/core';
-import { ContextMenuService, ContextMenuComponent } from 'ngx-contextmenu';
+﻿import { ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
+import { ContextMenuComponent, ContextMenuService } from 'ngx-contextmenu';
 
 @Component({
     selector: 'demo',
     templateUrl: './demo.component.html',
     styleUrls: ['./demo.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: false
 })
 export class DemoComponent {

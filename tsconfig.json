@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
+    "strict": false,
     "module": "es2022",
     "moduleResolution": "bundler",
     "target": "ES2022",
@@ -14,11 +14,11 @@
     "skipLibCheck": true,
     "stripInternal": true,
     "paths": {
+      "src/*": [
+        "./src/*"
+      ],
       "ngx-contextmenu": [
         "./dist/ngx-contextmenu"
-      ],
-      "ngx-contextmenu-new": [
-        "dist/ngx-contextmenu-new"
       ],
       "ngx-contextmenu/*": [
         "./dist/ngx-contextmenu/*"

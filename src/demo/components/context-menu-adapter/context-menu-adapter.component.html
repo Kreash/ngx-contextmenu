@@ -9,7 +9,7 @@
           [enabled]="subOption.enabled"
           (execute)="subOption.action($event.item)"
         >
-          <div class="menu-option" [id]="'context-menu-' + subOption?.id">
+          <div class="menu-option" [id]="'context-menu-' + subOption.id">
               @if (subOption.icon) {
               <img class="menu-icon" [src]="subOption.enabled ? subOption.icon : subOption.iconDisabled" alt="" />
             }
@@ -32,7 +32,7 @@
       (execute)="onAction(option, $event.item)"
       [subMenu]="option.subMenu && subOptions"
     >
-      <div class="menu-option" [id]="'context-menu-' + option?.id">
+      <div class="menu-option" [id]="'context-menu-' + option.id">
         @if (option.icon) {
           <img class="menu-icon" [ngClass]="{ disabled: !isEnabled(option, item) }" [src]="option.enabled ? option.icon : option.iconDisabled" alt="" />
         }
