@@ -60,7 +60,6 @@ export class ContextMenuContentComponent implements OnInit, AfterViewInit {
   @ViewChildren('li') public menuItemElements: QueryList<ElementRef>;
 
   public autoFocus = false;
-  public useBootstrap4 = false;
   private _keyManager: ActiveDescendantKeyManager<ContextMenuItemDirective>;
   private readonly destroyRef = inject(DestroyRef);
   private readonly options = inject<IContextMenuOptions | null>(CONTEXT_MENU_OPTIONS, { optional: true });
@@ -68,7 +67,6 @@ export class ContextMenuContentComponent implements OnInit, AfterViewInit {
   constructor() {
     if (this.options) {
       this.autoFocus = this.options.autoFocus;
-      this.useBootstrap4 = this.options.useBootstrap4;
     }
   }
 

@@ -5,16 +5,13 @@
         #li
         [class.disabled]="!isMenuItemEnabled(menuItem)"
         [class.divider]="menuItem.divider"
-        [class.dropdown-divider]="useBootstrap4 && menuItem.divider"
         [class.active]="menuItem.isActive && isMenuItemEnabled(menuItem)"
         [attr.role]="menuItem.divider ? 'separator' : undefined"
         >
         @if (!menuItem.divider && !menuItem.passive) {
           <a
             href
-            [class.dropdown-item]="useBootstrap4"
             [class.active]="menuItem.isActive && isMenuItemEnabled(menuItem)"
-            [class.disabled]="useBootstrap4 && !isMenuItemEnabled(menuItem)"
             [class.hasSubMenu]="!!menuItem.subMenu"
             (click)="onMenuItemSelect(menuItem, $event)"
             (mouseenter)="onOpenSubMenu(menuItem, $event)"
@@ -28,8 +25,6 @@
               (click)="stopEvent($event)"
               (contextmenu)="stopEvent($event)"
               class="passive"
-              [class.dropdown-item]="useBootstrap4"
-              [class.disabled]="useBootstrap4 && !isMenuItemEnabled(menuItem)"
               >
               <ng-template [ngTemplateOutlet]="menuItem.template" [ngTemplateOutletContext]="{ $implicit: item }"></ng-template>
             </span>

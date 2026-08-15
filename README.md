@@ -1,7 +1,6 @@
 # ngx-contextmenu
 
 A context menu built with Angular (v22).
-Bootstrap classes are included in the markup, but there is no explicit dependency on Bootstrap.
 
 #### Supported Angular versions: 22, 21, 20, 19, 18, 17
 
@@ -254,27 +253,6 @@ You can key off of the `ngx-contextmenu` class to create your own styles. Note t
   color: darkgreen;
   background-color: chartreuse;
 }
-```
-
-## Bootstrap 4
-
-If you're using Bootstrap 4, you can specify a `useBootstrap4` property in the `forRoot` function of the `ContextMenuModule` in order to get the appropriate class names. Like this:
-
-```js
-@NgModule({
-  import: [
-    ContextMenuModule.forRoot({
-      useBootstrap4: true,
-    }),
-  ],
-})
-export class AppModule {}
-```
-
-**Or, if you want to repeat yourself,** you can add a `useBootstrap4` attribute to each `context-menu` component. Like this:
-
-```html
-<context-menu [useBootstrap4]="true"></context-menu>
 ```
 
 ## Different styling on menus

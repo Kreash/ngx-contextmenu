@@ -45,7 +45,6 @@ export interface MouseLocation {
 export class ContextMenuComponent {
   @Input() public menuClass = '';
   @Input() public autoFocus = false;
-  @Input() public useBootstrap4 = false;
   @Input() public disabled = false;
   @Output() public close: EventEmitter<CloseContextMenuEvent> = new EventEmitter();
   @Output() public open: EventEmitter<IContextMenuClickEvent> = new EventEmitter();
@@ -66,7 +65,6 @@ export class ContextMenuComponent {
   constructor() {
     if (this.options) {
       this.autoFocus = this.options.autoFocus;
-      this.useBootstrap4 = this.options.useBootstrap4;
     }
 
     this.contextMenuService.show.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((menuEvent) => this.onMenuEvent(menuEvent));
